@@ -9,10 +9,13 @@ public class ProfessorModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProfessor;
+
     @Column
     private String nome;
+
     @Column
     private String cpf;
+
     @Column
     private String email;
 
@@ -23,7 +26,6 @@ public class ProfessorModel {
     public ProfessorModel(){
 
     }
-
 
 
     public Long getIdProfessor() {

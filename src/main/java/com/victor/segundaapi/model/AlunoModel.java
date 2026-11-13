@@ -17,8 +17,10 @@ public class AlunoModel {
     private String email;
 
     @Column
-    private String endereco;
+    private String cpf;
 
+    @Column(nullable = false)
+    private String senha;
 
     public AlunoModel(){
 
@@ -48,11 +50,19 @@ public class AlunoModel {
         this.email = email;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }

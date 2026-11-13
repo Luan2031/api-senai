@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.rmi.MarshalledObject;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -47,16 +46,14 @@ public class ProfessorController {
         return ResponseEntity.status(HttpStatus.CREATED).body(professorSalvo);
     }
 
-
-
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<?> deletarPorId( @PathVariable Long id) {
+    public ResponseEntity<?> deletarPorId(@PathVariable Long id) {
         boolean professorExiste = professorService.deletarProfessor(id);
 
         if (professorExiste) {
             return ResponseEntity.status(HttpStatus.OK).body(Map.of("mensagem", "Professor excluido com sucesso"));
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("mensagem", "Professor nao existe"));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("mensagem", "Professor não existe"));
         }
     }
 
@@ -67,7 +64,7 @@ public class ProfessorController {
         if(professor.isPresent()){
             return ResponseEntity.status(HttpStatus.OK).body(professor);
         }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("mensagem", "Professor nao encontrado"));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("mensagem", "Professor não encontrado"));
         }
     }
 
@@ -78,7 +75,7 @@ public class ProfessorController {
         if(professor != null){
             return ResponseEntity.status(HttpStatus.OK).body(Map.of("mensagem", "Professor atualizado com sucesso!"));
         } else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("mensagem", "Falha ao atualizar professor. Verifique os dados da requisicao"));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("mensagem", "Falha ao atualizar professor. Verifique os dados da requisição"));
         }
     }
 }
